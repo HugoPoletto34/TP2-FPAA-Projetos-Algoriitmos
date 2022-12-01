@@ -1,0 +1,41 @@
+1) DISTRIBUINDO ROTAS DE ENTREGA
+
+A crescente informatização dos nossos procedimentos corriqueiros, impulsionada pela infeliz
+pandemia  COVID-19  que  nos  atingiu  nos  últimos  anos,  tornou  cada  vez  mais  comum  que  façamos
+compras  diversas  online,  recebendo  os  produtos  diretamente  em  casa.  Consequentemente,  houve
+expansão dos serviços e das empresas de logística e de entrega de encomendas.
+
+Em um grande  centro de distribuição de  uma destas empresas,  rotas  são geradas automaticamente,
+em frequência semanal, garantindo que todos os produtos ali alocados cheguem aos seus destinatários
+o  quanto  antes.  No  entanto,  não  há  uma  política  de  distribuição  das  rotas,  ocasionando  que,
+eventualmente,  um  caminhão  de  entrega  rode  muitos  quilômetros  e  sobrecarregue  o  motorista,
+enquanto outros caminhões estão parados.
+
+Sua  tarefa,  então,  é  criar  um  algoritmo  que  receba  um  conjunto  de  rotas  (representadas  por  um
+identificador  e  seu  comprimento  em  quilômetros)  e  um  número  de  caminhões  disponíveis.  A  partir
+destes  dados,  o  algoritmo  deve  distribuir  as  rotas  entre  os  caminhões  de  maneira  a  minimizar  a
+diferença de quilometragem total rodada entre eles.
+
+a) Para o problema 1, modelar e implementar soluções baseadas em
+• Algoritmo guloso.
+• Tentativa e erro (Backtracking).
+• Programação dinâmica.
+b) Comparar as soluções obtidas pelos algoritmos em resultado e tempo.
+
+
+
+
+9 3 1 8 10 1 7 10 8 9 5 7 5 5 5 7 8 10 1 2
+64 57
+43 42 36
+33 31 31 26
+
+9 3 1 8 10 1 7 10 8 9 5 7 5 5 5 7 8 10 1 2
+64 57
+43 42 36
+33 31 31 26
+
+9 3 1 8 10 1 7 10 8 9 5 7 5 5 5 7 8 10 1 2
+64 57
+43 42 36
+33 31 31 26
