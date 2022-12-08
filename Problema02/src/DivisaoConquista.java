@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 class DivisaoConquista{
     HashMap<String, Integer> resultado = new HashMap<>();
-
+    List<Integer> somaAnos;
 
     public DivisaoConquista(String nomeArquivo) {
         this.leituraArquivo(nomeArquivo);
@@ -25,10 +25,16 @@ class DivisaoConquista{
                 String[] linha = sc.nextLine().split(";");
                 List<String> strTemparaturas = Arrays.asList(linha);
                 List<Integer> temperaturasTemp = strTemparaturas.stream().map(Integer::parseInt).collect(Collectors.toList());
-
+                if (this.somaAnos == null){
+                    this.somaAnos = temperaturasTemp;
+                }else{
+                    somaAnos.addAll(temperaturasTemp);
+                }
                 this.calculaMaiorTemperatura(temperaturasTemp, contador);
                 contador++;
             }
+            sc.close();
+            this.calculaMaiorTemperatura(somaAnos, 0);
 
         }catch (FileNotFoundException error){
             System.out.println(error);
@@ -43,7 +49,11 @@ class DivisaoConquista{
     }
 
     private void printDados(Map.Entry<String, Integer> dados, int ano){
-        System.out.println("No ano " + ano + " as maiores temperaturas ocorreram nos dias: " + dados.getKey() + " e a soma das temperaturas e de: " + dados.getValue());
+        if (ano > 0){
+            System.out.println("No ano " + ano + " as maiores temperaturas ocorreram nos dias: " + dados.getKey() + " e a soma das temperaturas e de: " + dados.getValue());
+        }else{
+            System.out.println("Juntando todos os anos as maiores temperaturas ocorreram nos dias: " + dados.getKey() + " e a soma das temperaturas e de: " + dados.getValue());
+        }
     }
 
     private int maxCrossingSum(int arr[], int l, int m, int h)
@@ -58,7 +68,7 @@ class DivisaoConquista{
             sum = sum + arr[i];
             if (sum > left_sum){
                 left_sum = sum;
-                leftArray.add(i);
+                leftArray.add(i-1);
             }
         }
  
@@ -70,7 +80,7 @@ class DivisaoConquista{
             sum = sum + arr[i];
             if (sum > right_sum){
                 right_sum = sum;
-                rightArray.add(i);
+                rightArray.add(i-1);
             }
         }
  
@@ -124,19 +134,10 @@ class DivisaoConquista{
     }
 
     Map.Entry<String, Integer> getHashMap(){
-
         Map.Entry<String, Integer> maxEntry = this.resultado.entrySet().stream()
         .max(Comparator.comparing(Map.Entry::getValue))
         .orElse(null);
         return maxEntry;
-
-        // for (Map.Entry<String, Integer> set :
-        //      this.resultado.entrySet()) {
- 
-        //     // Printing all elements of a Map
-        //     System.out.println(set.getKey() + " = "
-        //                        + set.getValue());
-        // }
     }
 
 
